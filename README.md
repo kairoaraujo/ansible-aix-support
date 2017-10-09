@@ -1,7 +1,8 @@
-Ansible AIX modules
+Ansible AIX support
 ===================
 
-Ansible AIX modules is my collection of modules for AIX/PowerVM OS that are not (yet) commited to official Ansible.
+Ansible AIX support is my collection of modules or features for AIX/PowerVM OS that are not (yet) commited to official Ansible.
+
 I am personally working to put all those modules officially to Ansible project.
 My goal is put Ansible more integrated with AIX and PowerVM plataform.
 
