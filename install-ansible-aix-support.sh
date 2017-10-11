@@ -44,7 +44,7 @@ ansible_lib_path=$(echo ${ansible_data} | awk -F "ansible python module location
 for file in $(find lib/ | grep .py); do
     destination_file_path=$(echo ${file} | awk -F 'ansible' '{ print $2 }')
     if [ -f ${ansible_lib_path}${destination_file_path} ]; then
-        echo "[INFO] Backuping file ${ansible_lib_path}${destination_file_path}"
+        echo "[INFO] Saving backup file ${ansible_lib_path}${destination_file_path}"
         cp ${ansible_lib_path}${destination_file_path} ${ansible_lib_path}${destination_file_path}_$(date "+%m%d%H%M%Y.%S")
     fi
     echo "[INFO] Adding ${ansible_lib_path}${destination_file_path}"
