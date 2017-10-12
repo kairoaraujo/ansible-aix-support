@@ -31,7 +31,7 @@ List of pull requests already done to official Ansible
 |---------|---------------|-----------------------------------------------|--------|-------------
 | module  | aix_lvg       | https://github.com/ansible/ansible/pull/30381 | Open   | devel (2.5.0)
 | module  | aix_filesystem| https://github.com/ansible/ansible/pull/30810 | Open   | devel (2.5.0)
-| module  | mksysb        | https://github.com/ansible/ansible/pull/30460 | Open   | devel (2.5.0)
+| module  | mksysb        | https://github.com/ansible/ansible/pull/30460 | Merged | devel (2.5.0)
 | module  | installp      | https://github.com/ansible/ansible/pull/30238 | Open   | devel (2.5.0)
 | utils   | aix           | https://github.com/ansible/ansible/pull/31546 | Open   | devel (2.5.0)
 
