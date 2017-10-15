@@ -14,30 +14,34 @@ AIX support features list
 
 List of AIX supported modules on this repository
 
-+---------+---------------+------------------------------------------+----------------------------------------+
-| Type    | Name          | Description                              | Path                                   |
-+=========+===============+==========================================+========================================+
-| module  | aix_lvg       | AIX Logical Volume management            |lib/ansible/modules/system              |
-+---------+---------------+------------------------------------------+----------------------------------------+
-| module  | aix_filesystem| AIX Files system mamagement (LVM and NFS)|lib/ansible/modules/system              |
-+---------+---------------+------------------------------------------+----------------------------------------+
-| module  | mksysb        | AIX rootvg backup with mksysb            |lib/ansible/modules/system              |
-+---------+---------------+------------------------------------------+----------------------------------------+
-| module  | installp      | AIX package management                   |lib/ansible/modules/packaging/os        |
-+---------+---------------+------------------------------------------+----------------------------------------+
-| utils   | aix           | AIX hardware Ansible facts               |lib/modules/modules_utils/facts/hardware|
-+---------+---------------+------------------------------------------+----------------------------------------+
-
++---------+---------------+------------------------------------------+------------------------------------------------------+
+| Type    | Name          | Description                              | Path                                                 |
++=========+===============+==========================================+======================================================+
+| module  | aix_lvg       | AIX Logical Volume management            |lib/ansible/modules/system                            |
++---------+---------------+------------------------------------------+------------------------------------------------------+
+| module  | aix_filesystem| AIX Files system mamagement (LVM and NFS)|lib/ansible/modules/system                            |
++---------+---------------+------------------------------------------+------------------------------------------------------+
+| module  | mksysb        | AIX rootvg backup with mksysb            |lib/ansible/modules/system                            |
++---------+---------------+------------------------------------------+------------------------------------------------------+
+| module  | installp      | AIX package management                   |lib/ansible/modules/packaging/os                      |
++---------+---------------+------------------------------------------+------------------------------------------------------+
+| utils   | aix           | AIX hardware Ansible facts               |lib/modules/modules_utils/facts/hardware              |
++---------+---------------+------------------------------------------+------------------------------------------------------+
+| utils   | distribution  | AIX distribution version added #29561    |lib/ansible/module_utils/facts/system/distribution.py |
++---------+---------------+------------------------------------------+------------------------------------------------------+
 
 Installation procedure
 ======================
 
-Using latest release
---------------------
-
 1. Download
 
 https://github.com/kairoaraujo/ansible-aix-support/releases
+
+or download using git
+
+.. code-block:: bash
+
+  # git clone https://github.com/kairoaraujo/ansible-aix-support
 
 2. Extract the files
 
@@ -88,6 +92,8 @@ List of pull requests already done to official Ansible
 | module  | installp      | https://github.com/ansible/ansible/pull/30238 | Open   | devel (2.5.0)|
 +---------+---------------+-----------------------------------------------+--------+--------------+
 | utils   | aix           | https://github.com/ansible/ansible/pull/31546 | Open   | devel (2.5.0)|
++---------+---------------+-----------------------------------------------+--------+--------------+
+| utils   | distribution  | https://github.com/ansible/ansible/pull/31754 | Open   | devel (2.5.0)|
 +---------+---------------+-----------------------------------------------+--------+--------------+
 
 
