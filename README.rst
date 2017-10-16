@@ -19,7 +19,11 @@ List of AIX supported modules on this repository
 +=========+===============+==========================================+======================================================+
 | module  | aix_lvg       | AIX Logical Volume management            |lib/ansible/modules/system                            |
 +---------+---------------+------------------------------------------+------------------------------------------------------+
-| module  | aix_filesystem| AIX Files system mamagement (LVM and NFS)|lib/ansible/modules/system                            |
+| module  | aix_devices   | AIX devices management                   |lib/ansible/modules/system                            |
++---------+---------------+------------------------------------------+------------------------------------------------------+
+| module  | aix_filesystem| AIX Files system management (LVM and NFS)|lib/ansible/modules/system                            |
++---------+---------------+------------------------------------------+------------------------------------------------------+
+| module  | aix_devices   | AIX devices management                   |lib/ansible/modules/system                            |
 +---------+---------------+------------------------------------------+------------------------------------------------------+
 | module  | mksysb        | AIX rootvg backup with mksysb            |lib/ansible/modules/system                            |
 +---------+---------------+------------------------------------------+------------------------------------------------------+
@@ -27,8 +31,9 @@ List of AIX supported modules on this repository
 +---------+---------------+------------------------------------------+------------------------------------------------------+
 | utils   | aix           | AIX hardware Ansible facts               |lib/modules/modules_utils/facts/hardware              |
 +---------+---------------+------------------------------------------+------------------------------------------------------+
-| utils   | distribution  | AIX distribution version added #29561    |lib/ansible/module_utils/facts/system/distribution.py |
+| utils   | distribution  | AIX distribution version added #29561    |lib/ansible/module_utils/facts/system                 |
 +---------+---------------+------------------------------------------+------------------------------------------------------+
+
 
 Installation procedure
 ======================
@@ -95,6 +100,8 @@ List of pull requests already done to official Ansible
 +---------+---------------+-----------------------------------------------+--------+--------------+
 | utils   | distribution  | https://github.com/ansible/ansible/pull/31754 | Open   | devel (2.5.0)|
 +---------+---------------+-----------------------------------------------+--------+--------------+
+| module  | aix_devices   | NONE (Testing phase)                          | test   |              |
++---------+---------------+-----------------------------------------------+-----------------------+
 
 
 License
