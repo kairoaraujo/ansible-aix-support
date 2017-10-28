@@ -74,6 +74,7 @@ or download using git
     [INFO] Backup file /usr/lib/python2.7/site-packages/ansible/module_utils/facts/hardware/aix.py
     [INFO] Adding /usr/lib/python2.7/site-packages/ansible/module_utils/facts/hardware/aix.py
     [INFO] Adding /usr/lib/python2.7/site-packages/ansible/modules/packaging/os/installp.py
+    [INFO] Adding /usr/lib/python2.7/site-packages/ansible/modules/system/aix_devices.py
     [INFO] Adding /usr/lib/python2.7/site-packages/ansible/modules/system/aix_filesystem.py
     [INFO] Adding /usr/lib/python2.7/site-packages/ansible/modules/system/aix_lvg.py
     [INFO] Adding /usr/lib/python2.7/site-packages/ansible/modules/system/mksysb.py
@@ -100,7 +101,7 @@ List of pull requests already done to official Ansible
 +---------+---------------+-----------------------------------------------+--------+--------------+
 | utils   | distribution  | https://github.com/ansible/ansible/pull/31754 | Open   | devel (2.5.0)|
 +---------+---------------+-----------------------------------------------+--------+--------------+
-| module  | aix_devices   | NONE (Testing phase)                          | test   |              |
+| module  | aix_devices   | https://github.com/ansible/ansible/pull/32290 | Open   | devel (2.5.0)|
 +---------+---------------+-----------------------------------------------+-----------------------+
 
 
