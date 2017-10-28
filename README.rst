@@ -102,7 +102,7 @@ List of pull requests already done to official Ansible
 | utils   | distribution  | https://github.com/ansible/ansible/pull/31754 | Open   | devel (2.5.0)|
 +---------+---------------+-----------------------------------------------+--------+--------------+
 | module  | aix_devices   | https://github.com/ansible/ansible/pull/32290 | Open   | devel (2.5.0)|
-+---------+---------------+-----------------------------------------------+-----------------------+
++---------+---------------+-----------------------------------------------+--------+--------------+
 
 
 License
