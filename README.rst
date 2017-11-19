@@ -29,10 +29,18 @@ List of AIX supported modules on this repository
 +---------+---------------+------------------------------------------+------------------------------------------------------+
 | module  | installp      | AIX package management                   |lib/ansible/modules/packaging/os                      |
 +---------+---------------+------------------------------------------+------------------------------------------------------+
+| module  | service       | Include AIX group of subsystems support  |lib/ansible/modules/system                            |
++---------+---------------+------------------------------------------+------------------------------------------------------+
 | utils   | aix           | AIX hardware Ansible facts               |lib/modules/modules_utils/facts/hardware              |
 +---------+---------------+------------------------------------------+------------------------------------------------------+
 | utils   | distribution  | AIX distribution version added #29561    |lib/ansible/module_utils/facts/system                 |
 +---------+---------------+------------------------------------------+------------------------------------------------------+
+
+
+Ansible versions tested
+=======================
+
+- 2.4
 
 
 Installation procedure
@@ -103,7 +111,8 @@ List of pull requests already done to official Ansible
 +---------+---------------+-----------------------------------------------+--------+--------------+
 | module  | aix_devices   | https://github.com/ansible/ansible/pull/32290 | Open   | devel (2.5.0)|
 +---------+---------------+-----------------------------------------------+--------+--------------+
-
+| module  | service       | https://github.com/ansible/ansible/pull/33043 | Open   | devel (2.5.0)|
++---------+---------------+-----------------------------------------------+--------+--------------+
 
 License
 =======
