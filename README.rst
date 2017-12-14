@@ -23,8 +23,6 @@ List of AIX supported modules on this repository
 +---------+---------------+------------------------------------------+------------------------------------------------------+
 | module  | aix_filesystem| AIX Files system management (LVM and NFS)|lib/ansible/modules/system                            |
 +---------+---------------+------------------------------------------+------------------------------------------------------+
-| module  | aix_devices   | AIX devices management                   |lib/ansible/modules/system                            |
-+---------+---------------+------------------------------------------+------------------------------------------------------+
 | module  | mksysb        | AIX rootvg backup with mksysb            |lib/ansible/modules/system                            |
 +---------+---------------+------------------------------------------+------------------------------------------------------+
 | module  | installp      | AIX package management                   |lib/ansible/modules/packaging/os                      |
@@ -107,7 +105,7 @@ List of pull requests already done to official Ansible
 +---------+---------------+-----------------------------------------------+--------+--------------+
 | utils   | aix           | https://github.com/ansible/ansible/pull/31546 | Open   | devel (2.5.0)|
 +---------+---------------+-----------------------------------------------+--------+--------------+
-| utils   | distribution  | https://github.com/ansible/ansible/pull/31754 | Open   | devel (2.5.0)|
+| utils   | distribution  | https://github.com/ansible/ansible/pull/31754 | Merged | devel (2.5.0)|
 +---------+---------------+-----------------------------------------------+--------+--------------+
 | module  | aix_devices   | https://github.com/ansible/ansible/pull/32290 | Open   | devel (2.5.0)|
 +---------+---------------+-----------------------------------------------+--------+--------------+
