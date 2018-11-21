@@ -9,6 +9,8 @@
 
 from __future__ import absolute_import, division, print_function
 
+from distutils.version import LooseVersion
+
 __metaclass__ = type
 
 ANSIBLE_METADATA = {'metadata_version': '1.1',
@@ -48,8 +50,8 @@ options:
     required: false
     default: present
 notes:
-  - If the package is already installed, even the package/fileset is new,
-    the module will not install it.
+  - If the package is already installed, and the package/fileset is new,
+    the module will update to the newer version.
 '''
 
 EXAMPLES = '''
@@ -123,22 +125,25 @@ def _check_new_pkg(module, package, repository_path):
 
         else:
             pkg_info = {}
+            found_pkg = False
+
             for line in package_result.splitlines():
                 if re.findall(package, line):
                     pkg_name = line.split()[0].strip()
                     pkg_version = line.split()[1].strip()
                     pkg_info[pkg_name] = pkg_version
 
-                    return True, pkg_info
+                    found_pkg = True
 
-        return False, None
+        return found_pkg, pkg_info
+
 
     else:
         module.fail_json(
             msg="Repository path %s is not valid." % repository_path)
 
 
-def _check_installed_pkg(module, package, repository_path):
+def _check_installed_pkg(module, package, repository_path, min_version):
     """
     Check the package on AIX.
     It verifies if the package is installed and informations
@@ -146,6 +151,7 @@ def _check_installed_pkg(module, package, repository_path):
     :param module: Ansible module parameters spec.
     :param package: Package/fileset name.
     :param repository_path: Repository package path.
+    :param min_version: Package version check 
     :return: Bool, package data.
     """
 
@@ -171,6 +177,10 @@ def _check_installed_pkg(module, package, repository_path):
             fileset = line.split(':')[1]
             level = line.split(':')[2]
             pkg_data[pkg_name] = fileset, level
+
+            # check if a higher version is available on the install media
+            if LooseVersion(level) < LooseVersion(min_version):
+                return False, None
 
         return True, pkg_data
 
@@ -234,8 +244,10 @@ def install(module, installp_cmd, packages, repository_path, accept_license):
 
         # If package exists on repository path, check if package is installed.
         if pkg_check:
+            min_version = pkg_data[package]
+
             pkg_check_current, pkg_info = _check_installed_pkg(
-                module, package, repository_path)
+                module, package, repository_path, min_version)
 
             # If package is already installed.
             if pkg_check_current:
