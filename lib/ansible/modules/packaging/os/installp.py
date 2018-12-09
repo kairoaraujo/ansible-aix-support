@@ -32,6 +32,12 @@ options:
     choices: [ 'yes', 'no' ]
     required: false
     default: no
+  install_prereqs: 
+    description:
+      - Install pre-requisite software automatically
+    choices: ['yes', 'no' ]
+    required: false
+    default: no
   name:
     description:
       - Name of package to install/remove. To operate on several packages
@@ -227,13 +233,18 @@ def remove(module, installp_cmd, packages):
     return changed, msg
 
 
-def install(module, installp_cmd, packages, repository_path, accept_license):
+def install(module, installp_cmd, packages, repository_path, accept_license, install_prereqs):
     installed_pkgs = []
     not_found_pkgs = []
     already_installed_pkgs = {}
 
     accept_license_param = {
         True: '-Y',
+        False: '',
+    }
+
+    install_prereqs_param = {
+        True: '-g',
         False: '',
     }
 
@@ -266,8 +277,8 @@ def install(module, installp_cmd, packages, repository_path, accept_license):
             else:
                 if not module.check_mode:
                     rc, install_out, err = module.run_command(
-                        "%s -a %s -X -d %s %s" % (
-                            installp_cmd, accept_license_param[accept_license],
+                        "%s -a %s %s -X -d %s %s" % (
+                            installp_cmd, accept_license_param[accept_license], install_prereqs_param[install_prereqs],
                             repository_path, package))
 
                     if rc != 0:
@@ -323,6 +334,7 @@ def main():
             name=dict(aliases=['pkg'], type='list'),
             repository_path=dict(type='str', default=None),
             accept_license=dict(type='bool', default='no'),
+            install_prereqs=dict(type='bool', default='no'),
             state=dict(default='present', choices=['present', 'absent']),
         ), supports_check_mode=True,
     )
@@ -334,6 +346,7 @@ def main():
     name = installp_params['name']
     repository_path = installp_params['repository_path']
     accept_license = installp_params['accept_license']
+    install_prereqs = installp_params['install_prereqs']
     state = installp_params['state']
 
     if state == 'present':
@@ -342,7 +355,7 @@ def main():
                                  "package")
 
         changed, msg = install(
-            module, installp_cmd, name, repository_path, accept_license)
+            module, installp_cmd, name, repository_path, accept_license, install_prereqs)
 
     elif state == 'absent':
         changed, msg = remove(module, installp_cmd, name)
